@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu - Hedgerow Coffee & Cake</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          document.documentElement.classList.add(savedTheme);
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+    <script>
+      tailwind.config = {
+        content: ["./*.html"],
+        darkMode: "class",
+      };
+    </script>
+  </head>
+  <body
+    class="min-h-screen bg-emerald-50 dark:bg-slate-900 transition-colors duration-200 pb-16"
+  >
+    <!-- Navigation -->
+    <nav class="bg-emerald-800 dark:bg-slate-950 shadow-lg">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex space-x-2 overflow-x-auto hidden md:flex">
+            <a
+              href="/"
+              class="nav-link px-4 py-2 rounded-md sm:text-lg text-base transition-colors duration-200 text-emerald-100 hover:bg-emerald-700 hover:text-white"
+              >Home</a
+            >
+            <a
+              href="/gallery.html"
+              class="nav-link px-4 py-2 rounded-md sm:text-lg text-base transition-colors duration-200 text-emerald-100 hover:bg-emerald-700 hover:text-white"
+              >Gallery</a
+            >
+            <a
+              href="/menu.html"
+              class="nav-link px-4 py-2 rounded-md sm:text-lg text-base transition-colors duration-200 bg-rose-600 text-white hover:bg-rose-700"
+              >Menu</a
+            >
+            <a
+              href="/setup.html"
+              class="nav-link px-4 py-2 rounded-md sm:text-lg text-base transition-colors duration-200 text-emerald-100 hover:bg-emerald-700 hover:text-white"
+              >Festival Setup</a
+            >
+            <a
+              href="/about.html"
+              class="nav-link px-4 py-2 rounded-md sm:text-lg text-base transition-colors duration-200 text-emerald-100 hover:bg-emerald-700 hover:text-white"
+              >About Us</a
+            >
+            <a
+              href="/contact.html"
+              class="nav-link px-4 py-2 rounded-md sm:text-lg text-base transition-colors duration-200 text-emerald-100 hover:bg-emerald-700 hover:text-white"
+              >Contact Us</a
+            >
+          </div>
+          <div class="md:hidden">
+            <button
+              id="burger-menu"
+              class="text-emerald-100 hover:text-white focus:outline-none"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+          <a
+            href="/index.html"
+            class="block px-4 py-2 text-emerald-100 hover:bg-emerald-700 hover:text-white"
+            >Home</a
+          >
+          <a
+            href="/gallery.html"
+            class="block px-4 py-2 text-emerald-100 hover:bg-emerald-700 hover:text-white"
+            >Gallery</a
+          >
+          <a
+            href="/menu.html"
+            class="block px-4 py-2 text-emerald-100 hover:bg-emerald-700 hover:text-white"
+            >Menu</a
+          >
+          <a
+            href="/setup.html"
+            class="block px-4 py-2 text-emerald-100 hover:bg-emerald-700 hover:text-white"
+            >Festival Setup</a
+          >
+          <a
+            href="/about.html"
+            class="block px-4 py-2 text-emerald-100 hover:bg-emerald-700 hover:text-white"
+            >About Us</a
+          >
+          <a
+            href="/contact.html"
+            class="block px-4 py-2 text-emerald-100 hover:bg-emerald-700 hover:text-white"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Theme Toggle -->
+    <button
+      id="theme-toggle"
+      class="fixed right-4 top-4 p-2 rounded-lg bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all duration-200 text-emerald-800 dark:text-emerald-100 border border-emerald-200 dark:border-slate-700"
+    >
+      <svg
+        id="moon-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+        />
+      </svg>
+      <svg
+        id="sun-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 hidden"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+        />
+      </svg>
+    </button>
+
+    <!-- Main Content -->
+    <main
+      id="main-content"
+      class="max-w-7xl mx-auto px-4 py-8 text-emerald-900 dark:text-emerald-100"
+    >
+      <div class="space-y-6">
+        <div class="text-center space-y-4">
+          <h1
+            class="sm:text-5xl text-3xl font-bold text-emerald-800 dark:text-emerald-100"
+          >
+            Our Menu
+          </h1>
+          <p
+            class="text-center sm:text-lg text-base text-emerald-600 dark:text-emerald-400 italic"
+          >
+            Prices may vary by location and season
+          </p>
+        </div>
+
+        <div
+          class="bg-white/80 dark:bg-slate-800/80 rounded-lg shadow-xl p-6 backdrop-blur-sm border border-emerald-100 dark:border-slate-700"
+        >
+          <table class="w-full">
+            <tbody
+              id="menu"
+              class="divide-y divide-emerald-200 dark:divide-slate-700"
+            >
+              <tr
+                class="hover:bg-emerald-50 dark:hover:bg-slate-700/50 transition-colors duration-200"
+              >
+                <td class="py-4 sm:text-lg text-base font-semibold">
+                  Category
+                </td>
+                <td class="py-4 sm:text-lg text-base font-semibold">Item</td>
+                <td
+                  class="py-4 sm:text-lg text-base font-semibold text-rose-600 dark:text-rose-400"
+                >
+                  Expected Price
+                </td>
+                <td class="py-4 sm:text-lg text-base font-semibold italic">
+                  Additional Information
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="fixed bottom-0 w-full bg-emerald-800/90 dark:bg-slate-950/90 backdrop-blur-sm"
+    >
+      <div class="max-w-7xl mx-auto px-4 py-3 text-center text-emerald-100">
+        &copy; 2025 Hedgerow Coffee & Cake
+      </div>
+    </footer>
+    <script src="/menu.js"></script>
+    <script src="/theme.js"></script>
+    <script src="/mobile.js"></script>
+  </body>
+</html>
